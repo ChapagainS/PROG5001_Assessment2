@@ -78,12 +78,20 @@ public class GradeFiles
         for (int i= sortedStudents.size()-1; i >= sortedStudents.size() -5 && i >=0; i--) {
             System.out.println(sortedStudents.get(i));
         }        
-        
-        
     }
     
     private static void sortByMarks(List<studentDetails> studentList) {
-        
+        int n = studentList.size();
+        for (int i =0; i < n; i++){
+            for (int j =0; j < n-i-1; j++) {
+                if (studentList.get(j).displayTotal() < studentList.get(j+1).displayTotal()){
+                   studentDetails temp = studentList.get(j);
+                   studentList.set(j, studentList.get(j+1));
+                   studentList.set(j+1, temp);
+                }
+                
+            }
+        }
     }
     
     public static void readSheetData(String fileName){
@@ -142,3 +150,4 @@ class studentDetails{
         return String.format("%-50s %-15d %.1f %.1f %.1f %.1f", this.name, this.studentId, this.a1, this.a2, this.a3, displayTotal());
     }
 }
+
