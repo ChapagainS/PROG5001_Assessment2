@@ -29,6 +29,20 @@ public class GradeFiles
             System.out.println("Choose the option: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
+            
+            switch (choice) {
+                case 1:
+                    listStudentBelowThreshold(scanner);
+                    break;
+                case 2:
+                    Top5andBelow5Students();
+                    break;
+                case 3:
+                    System.out.println("Exit");
+                    System.exit(0);
+                default:
+                    System.out.println("No such option! Try Again.");
+            }
         }
         
     }
