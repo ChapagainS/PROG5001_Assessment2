@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 
 public class GradeFiles
 {
-    private static List<Students> students = new ArrayList<Students>();
+    private static List<studentDetails> students = new ArrayList<studentDetails>();
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);           //Taking the file input from the user.
@@ -40,7 +40,7 @@ public class GradeFiles
                     } catch (NumberFormatException e) {     
                         System.err.println();               //Default error message if the format of the data doesn't match.
                     }
-                    students.add(new Students(name, studentId, a1, a2, a3));
+                    students.add(new studentDetails(name, studentId, a1, a2, a3));
                 }
             }
         }
@@ -49,5 +49,32 @@ public class GradeFiles
                 System.exit(1);
             }
     }
-    public static void displayMarks()
+    public static void displayMarks(){
+        for(studentDetails students : students) {
+            System.out.println(students);
+        }
+    }
+}
+
+class studentDetails{
+    private String name;
+    private int studentId;
+    private double a1, a2, a3;
+    
+    public studentDetails (String name, int studentId, double a1, double a2, double a3) {
+        this.name = name;
+        this.studentId = studentId;
+        this.a1 = a1;
+        this.a2 = a2;
+        this.a3 = a3;
+    }
+    
+    public double displayTotal(){
+        return this.a1+ this.a2+ this.a3;               //Get the total accumulated marks;
+    }
+    
+    @Override
+    public String toString(){
+        return String.format("%-50s %-15d %.1f %.1f %.1f %.1f", this.name, this.studentId, this.a1, this.a2, this.a3, displayTotal());
+    }
 }
