@@ -21,6 +21,7 @@ public class GradeFiles
         readSheetData(fileName);
         displayMarks();
         
+        //Display a menu for user to interact
         while (true) {
             System.out.println("\nMenu: ");
             System.out.println("1. List students with total marks lower than the threshold");
@@ -30,21 +31,38 @@ public class GradeFiles
             int choice = scanner.nextInt();
             scanner.nextLine();
             
+        //Perform a switch case to let the user choose the operation.
             switch (choice) {
                 case 1:
                     listStudentBelowThreshold(scanner);
                     break;
-                case 2:
-                    Top5andBelow5Students();
-                    break;
-                case 3:
-                    System.out.println("Exit");
-                    System.exit(0);
+                //case 2:
+                  //  Top5andBelow5Students();
+                    //break;
+                //case 3:
+                  //  System.out.println("Exit");
+                    //System.exit(0);
                 default:
                     System.out.println("No such option! Try Again.");
             }
         }
         
+    }
+    
+    private static void listStudentBelowThreshold(Scanner scanner) {
+        System.out.println("Enter the threshold value: ");
+        double threshold = scanner.nextDouble();
+        List<studentDetails> filterStudents = new ArrayList<>();
+        
+        for (studentDetails students : students){
+            if (students.displayTotal() < threshold) {
+                filterStudents.add(students);
+            }
+        }
+        System.out.println("Students that scored less marks than " +threshold+ ":");
+        for (studentDetails students : filterStudents) {
+            System.out.println(students);
+        }
     }
     
     public static void readSheetData(String fileName){
