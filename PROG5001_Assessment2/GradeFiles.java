@@ -36,9 +36,9 @@ public class GradeFiles
                 case 1:
                     listStudentBelowThreshold(scanner);
                     break;
-                //case 2:
-                  //  Top5andBelow5Students();
-                    //break;
+                case 2:
+                    Top5andBelow5Students();
+                    break;
                 //case 3:
                   //  System.out.println("Exit");
                     //System.exit(0);
@@ -63,6 +63,23 @@ public class GradeFiles
         for (studentDetails students : filterStudents) {
             System.out.println(students);
         }
+    }
+    
+    private static void Top5andBelow5Students() {
+        List<studentDetails> sortedStudents = new ArrayList<>(students);
+        sortByMarks(sortedStudents);
+        
+        System.out.println("5 highest marks scorers : ");
+        for (int i= 0; i <5 && i < sortedStudents.size(); i++) {
+            System.out.println(sortedStudents.get(i));
+        }
+        
+       
+        
+    }
+    
+    private static void sortByMarks(List<studentDetails> studentList) {
+        
     }
     
     public static void readSheetData(String fileName){
