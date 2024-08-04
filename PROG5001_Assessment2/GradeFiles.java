@@ -19,7 +19,7 @@ public class GradeFiles
         System.out.println("Enter the file name of the Student marks sheet: ");
         String fileName = scanner.nextLine();               
         readSheetData(fileName);
-        displayAllMarks();
+        displayMarks();
     }
     
     public static void readSheetData(String fileName){
@@ -31,7 +31,7 @@ public class GradeFiles
                 String[] data = line.split(",");            //Giving instruction that the different fields on the sheet are separated by a comma ",".
                 if (data.length >=6) {
                     String name = data[1] +" "+data[0];     //Giving the array value of the data.
-                    int studentID = Integer.parseInt(data[2]);
+                    int studentId = Integer.parseInt(data[2]);
                     double a1=0, a2=0, a3=0;                //Initial value set
                     try{
                         a1 = Double.parseDouble (data[3]);
@@ -40,8 +40,14 @@ public class GradeFiles
                     } catch (NumberFormatException e) {     
                         System.err.println();               //Default error message if the format of the data doesn't match.
                     }
+                    students.add(new Students(name, studentId, a1, a2, a3));
                 }
             }
         }
+            catch (FileNotFoundException e) {
+                System.out.println("File is not located in same directory!" +fileName);         //Run this error message if the file in not found in the location.
+                System.exit(1);
+            }
     }
+    public static void displayMarks()
 }
