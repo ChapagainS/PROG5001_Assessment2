@@ -74,7 +74,11 @@ public class GradeFiles
             System.out.println(sortedStudents.get(i));
         }
         
-       
+        System.out.println("5 lowest marks scorers : ");
+        for (int i= sortedStudents.size()-1; i >= sortedStudents.size() -5 && i >=0; i--) {
+            System.out.println(sortedStudents.get(i));
+        }        
+        
         
     }
     
