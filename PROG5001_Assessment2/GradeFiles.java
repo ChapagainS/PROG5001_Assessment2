@@ -20,6 +20,17 @@ public class GradeFiles
         String fileName = scanner.nextLine();               
         readSheetData(fileName);
         displayMarks();
+        
+        while (true) {
+            System.out.println("\nMenu: ");
+            System.out.println("1. List students with total marks lower than the threshold");
+            System.out.println("2. List 5 students who scored the highest and the lowest total marks");
+            System.out.println("3. Exit");
+            System.out.println("Choose the option: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+        }
+        
     }
     
     public static void readSheetData(String fileName){
