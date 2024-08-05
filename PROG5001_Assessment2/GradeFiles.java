@@ -70,12 +70,12 @@ public class GradeFiles
         sortByMarks(sortedStudents);
         
         System.out.println("5 highest marks scorers : ");
-        for (int i= 0; i <5 && i < sortedStudents.size(); i++) {
+        for (int i= 0; i <5 && i < sortedStudents.size(); i++) {        //Start from first placed student and increment reaching the fifth highest scoring student.
             System.out.println(sortedStudents.get(i));
         }
         
         System.out.println("5 lowest marks scorers : ");
-        for (int i= sortedStudents.size()-1; i >= sortedStudents.size() -5 && i >=0; i--) {
+        for (int i= sortedStudents.size()-1; i >= sortedStudents.size() -5 && i >=0; i--) {     //Start from last placed student and decrement reaching the fifth lowest scoring student.
             System.out.println(sortedStudents.get(i));
         }        
     }
