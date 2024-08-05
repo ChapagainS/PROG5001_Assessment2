@@ -37,7 +37,7 @@ public class GradeFiles
                     listStudentBelowThreshold(scanner);
                     break;
                 case 2:
-                    Top5andBelow5Students();
+                    TopAndBelowStudents();
                     break;
                 case 3:
                     System.out.println("Exit");
@@ -65,7 +65,7 @@ public class GradeFiles
         }
     }
     
-    private static void Top5andBelow5Students() {
+    private static void TopAndBelowStudents() {
         List<studentDetails> sortedStudents = new ArrayList<>(students);
         sortByMarks(sortedStudents);
         
